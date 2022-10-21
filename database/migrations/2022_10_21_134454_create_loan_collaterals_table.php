@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('loan_collaterals', function (Blueprint $table) {
             $table->id();
+            $table->string("hashid")->nullable();
             $table->foreignId('created_by')->nullable();
             $table->foreignId('loan_id')->nullable();
             $table->foreignId('loan_collateral_type_id')->constrained();

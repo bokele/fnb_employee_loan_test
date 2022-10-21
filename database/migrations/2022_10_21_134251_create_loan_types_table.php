@@ -15,7 +15,8 @@ return new class extends Migration
     {
         Schema::create('loan_types', function (Blueprint $table) {
             $table->id();
-            $table->foreignId("created_by")->constrained();
+            $table->string("hashid")->nullable();
+            $table->foreignId("created_by");
             $table->string("type")->unique();
             $table->unsignedInteger("rate")->default(0);
             $table->timestamps();

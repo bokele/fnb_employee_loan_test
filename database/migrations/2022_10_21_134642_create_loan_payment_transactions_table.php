@@ -15,8 +15,9 @@ return new class extends Migration
     {
         Schema::create('loan_payment_transactions', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('approved_by')->nullable()->constrained();
-            $table->foreignId('created_by')->nullable()->constrained();
+            $table->string("hashid")->nullable();
+            $table->foreignId('approved_by')->nullable();
+            $table->foreignId('created_by')->nullable();
             $table->foreignId("loan_id")->constrained();
             $table->boolean("trans_status")->default(false);
             $table->string("status")->default('wait');;

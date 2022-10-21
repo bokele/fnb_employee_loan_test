@@ -17,7 +17,8 @@ return new class extends Migration
     {
         Schema::create('loan_employee_nextkins', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('created_by')->constrained();
+            $table->string("hashid")->nullable();
+            $table->foreignId('created_by');
             $table->foreignId('loan_id')->constrained();
             $table->string('kin_fullname');
             $table->string('kin_id_type')->default('nrc');

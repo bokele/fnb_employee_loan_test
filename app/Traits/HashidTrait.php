@@ -28,6 +28,7 @@ trait HashidTrait
 
         static::created(function ($model) {
             $model->hashid = $model->generateHashid();
+            $model->created_by = auth()->id();
             $model->save();
         });
     }

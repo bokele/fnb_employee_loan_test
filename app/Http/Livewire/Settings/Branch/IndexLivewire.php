@@ -10,12 +10,6 @@ class IndexLivewire extends Component
 {
     use WithPagination;
 
-
-
-    public function mount()
-    {
-    }
-
     public function render()
     {
         $branches = Branch::query()->latest()->paginate(25);

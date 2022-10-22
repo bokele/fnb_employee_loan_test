@@ -33,12 +33,12 @@
             <i class="fad fa-users text-xs mr-2"></i>
             Branch
         </a>
-        <a href="{{route('admin.settings.branches.index')}}"
+        <a href="{{route('admin.settings.loan-types.index')}}"
             class="mb-3 capitalize font-medium text-sm hover:text-teal-600 transition ease-in-out duration-500">
             <i class="fad fa-users text-xs mr-2"></i>
             Loan Type
         </a>
-        <a href="{{route('admin.settings.branches.index')}}"
+        <a href="{{route('admin.settings.loan-types.index')}}"
             class="mb-3 capitalize font-medium text-sm hover:text-teal-600 transition ease-in-out duration-500">
             <i class="fad fa-users text-xs mr-2"></i>
             Collateral Type

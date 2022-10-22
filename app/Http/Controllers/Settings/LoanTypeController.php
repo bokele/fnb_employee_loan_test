@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Settings;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class BranchSettingController extends Controller
+class LoanTypeController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,10 +15,11 @@ class BranchSettingController extends Controller
     public function index()
     {
         $data = [
-            'title' => "Branch List"
+            'title' => "Loan Type"
         ];
 
-        return view("settings.branches.index")->with($data);
+
+        return view("settings.loan-type.index")->with($data);
     }
 
     /**
@@ -29,11 +30,12 @@ class BranchSettingController extends Controller
     public function create()
     {
         $data = [
-            'title' => "Branch Create"
+            'title' => "Loan Type Create"
         ];
 
 
-        return view("settings.branches.create")->with($data);
+
+        return view("settings.loan-type.create")->with($data);
     }
 
 
@@ -44,13 +46,14 @@ class BranchSettingController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($hashid)
     {
         $data = [
-            'tilte' => "Branch Show"
+            'title' => "Loan Type Detail",
+            "hashid" => $hashid
         ];
 
-        return view("settings.branches.show")->with($data);
+        return view("settings.loan-type.show")->with($data);
     }
 
     /**
@@ -62,10 +65,10 @@ class BranchSettingController extends Controller
     public function edit($hashid)
     {
         $data = [
-            'tilte' => "Branch Edit",
+            'title' => "Loan Type Edit",
             "hashid" => $hashid
         ];
 
-        return view("settings.branches.edit")->with($data);
+        return view("settings.loan-type.edit")->with($data);
     }
 }

@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('loan_collateral_types', function (Blueprint $table) {
             $table->id();
             $table->string("hashid")->nullable();
-            $table->foreignId("created_by");
+            $table->foreignId("created_by")->nullable();
             $table->string("type")->unique();
             $table->timestamps();
             $table->softDeletes();

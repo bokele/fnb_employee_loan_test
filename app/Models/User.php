@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Traits\HashidTrait;
 use Illuminate\Support\Str;
 use Laravel\Sanctum\HasApiTokens;
 use Laravel\Jetstream\HasProfilePhoto;
@@ -10,10 +11,11 @@ use Illuminate\Notifications\Notifiable;
 use Laravel\Fortify\TwoFactorAuthenticatable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Casts\Attribute;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class User extends Authenticatable
+class User extends Authenticatable implements MustVerifyEmail
 {
     use HasApiTokens;
     use HasFactory;
@@ -21,6 +23,7 @@ class User extends Authenticatable
     use Notifiable;
     use TwoFactorAuthenticatable;
     use HasRoles;
+    use HashidTrait;
 
     /**
      * The attributes that are mass assignable.
@@ -31,6 +34,12 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'phone',
+        'gender',
+        'job_type',
+        'base_salary',
+        'branch_id',
+        'hashid',
     ];
 
     /**
@@ -74,5 +83,9 @@ class User extends Authenticatable
             get: fn ($value) => Str::title($value),
             set: fn ($value) => Str::lower($value),
         );
+    }
+    public function branch(): BelongsTo
+    {
+        return $this->belongsTo(Branch::class, "branch_id", "id");
     }
 }

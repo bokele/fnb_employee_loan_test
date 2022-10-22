@@ -97,10 +97,10 @@ class EditLoanTypeLivewire extends Component
     public function delete()
     {
         $hashid = $this->hashid;
-        $branch = LoanType::whereHashid($hashid)->firstOrFail();
-        $branch->delete();
+        $loanType = LoanType::whereHashid($hashid)->firstOrFail();
+        $loanType->delete();
 
-        if ($branch != null) {
+        if ($loanType != null) {
             $this->resetFilters();
             session()->flash('success', 'Laon Type has been deletd.');
             return redirect()->route('admin.settings.loan-types.index');

@@ -1,3 +1,3 @@
 <x-app-layout :title="$title">
-    <livewire:user-management.permission.index-permission-livewire />
+    <livewire:user-management.role.index-role-livewire />
 </x-app-layout>

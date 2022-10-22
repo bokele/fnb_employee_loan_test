@@ -9,12 +9,12 @@
                 <x-form.input-error for="name"></x-form.input-error>
             </x-form.input-group>
             {{-- Rate--}}
-            @if($roleList->count())
-            @foreach($roleList as $id => $name)
-            <x-form.input-group>
+            @if($permissionList->count())
+            @foreach($permissionList as $id => $name)
+            <x-form.input-group class="inline-flex space-x-3">
 
-                <x-form.checkbox id="permissions-{{ $id }}" name="permissions[]" wire:model.defer="permissions"
-                    value="{{ $id }}" />
+                <x-form.checkbox id="permissions-{{ $id }}" name="permissions[]"
+                    wire:model.defer="permissions.{{ $id }}" value="{{ $id }}" />
                 <x-form.label for="permissions-{{ $id }}" value="{{ $name }}" />
             </x-form.input-group>
             @endforeach
@@ -33,7 +33,7 @@
             <div class="mt-5">
                 <x-layout.delete-modal>
                     <x-slot:title>
-                        Deleting Permission
+                        Deleting Role
                     </x-slot:title>
 
                     <p class="my-2.5">Deleting will delete this bank completely and they will no longer be able to

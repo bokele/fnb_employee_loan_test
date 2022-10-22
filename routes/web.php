@@ -1,10 +1,11 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Settings\LoanTypeController;
+use App\Http\Controllers\UserManagement\RoleController;
 use App\Http\Controllers\Settings\BranchSettingController;
 use App\Http\Controllers\Settings\CollateralTypeController;
-use App\Http\Controllers\Settings\LoanTypeController;
 use App\Http\Controllers\UserManagement\PermissionController;
-use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -42,6 +43,7 @@ Route::middleware([
             Route::name('user-management.')->group(function () {
                 Route::prefix('user-management')->group(function () {
                     Route::resource('permissions', PermissionController::class)->only('index', 'create', 'edit', 'show');
+                    Route::resource('roles', RoleController::class)->only('index', 'create', 'edit', 'show');
                 });
             });
         });

@@ -1,4 +1,4 @@
 <x-app-layout :title="$title">
 
-    <livewire:settings.loan-type.create-loan-type-livewire />
+    <livewire:settings.user-management.create-loan-type-livewire />
 </x-app-layout>

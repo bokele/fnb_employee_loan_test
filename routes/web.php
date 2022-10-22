@@ -3,6 +3,7 @@
 use App\Http\Controllers\Settings\BranchSettingController;
 use App\Http\Controllers\Settings\CollateralTypeController;
 use App\Http\Controllers\Settings\LoanTypeController;
+use App\Http\Controllers\UserManagement\PermissionController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -36,6 +37,11 @@ Route::middleware([
                     Route::resource('branches', BranchSettingController::class)->only('index', 'create', 'edit', 'show');
                     Route::resource('loan-types', LoanTypeController::class)->only('index', 'create', 'edit', 'show');
                     Route::resource('collateral-types', CollateralTypeController::class)->only('index', 'create', 'edit', 'show');
+                });
+            });
+            Route::name('user-management.')->group(function () {
+                Route::prefix('user-management')->group(function () {
+                    Route::resource('permissions', PermissionController::class)->only('index', 'create', 'edit', 'show');
                 });
             });
         });

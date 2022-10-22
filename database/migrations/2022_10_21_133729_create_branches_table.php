@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('branches', function (Blueprint $table) {
             $table->id();
             $table->string("hashid")->nullable();
-            $table->foreignId("created_by");
+            $table->foreignId("created_by")->nullable();
             $table->string("branch_name")->unique();
             $table->string("address")->nullable();
             $table->string("phone_number")->nullable();

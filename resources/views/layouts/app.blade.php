@@ -1,3 +1,4 @@
+@props(['title'])
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
@@ -10,7 +11,7 @@
     <link rel="icon" type="image/png" sizes="16x16" href="{{asset('assets/favicon_io/favicon-16x16.png')}}">
     <link rel="manifest" href="{{asset('assets/favicon_io/site.webmanifest')}}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ $title. " | " ?? ''}} {{ config('app.name', 'Laravel') }} </title>
 
     <!-- Fonts -->
     <link rel="stylesheet" href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap">
@@ -35,14 +36,9 @@
 
         <!-- strat content -->
         <div class="bg-gray-100 flex-1 p-6 md:mt-16">
-            @if (isset($header))
-            <header class=" shadow">
-                <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-                    {{ $header }}
-                </div>
-            </header>
-            @endif
+            @include('layouts.partial.flash')
             {{ $slot }}
+
             @yield('content')
 
         </div>

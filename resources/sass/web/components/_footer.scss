@@ -1,0 +1,92 @@
+footer#site-footer {
+    background: $gray-darker;
+    padding-top: 49px;
+    padding-bottom: 59px;
+
+    h5 {
+        font-size: 18px;
+        margin-bottom: 21px;
+    }
+
+    p {
+        line-height: 1.5em;
+
+        &.footer-logos {
+            margin-top: 52px;
+            > img {
+                margin-bottom: 20px;
+                display: block;
+                &:last-child {
+                    margin-bottom: 0;
+                }
+            }
+        }
+    }
+
+    .footer-contact-details {
+        margin-top: 24px;
+        margin-bottom: 30px;
+
+        li {
+            position: relative;
+            min-height: 24px;
+            padding-left: 36px;
+            font-weight: $font-weight-semibold;
+            margin-bottom: 25px;
+            &:before {
+                content: ' ';
+                width: 24px;
+                height: 24px;
+                position: absolute;
+                left: 0;
+                top: 0;
+            }
+
+            &.footer-phone:before {
+                background-image: url('/images/footer-phone.png');
+                top: 5px;
+            }
+            &.footer-email:before {background-image: url('/images/footer-email.png');}
+            &.footer-support:before {background-image: url('/images/footer-support.png');}
+        }
+
+        .footer-phone {
+            .phone {
+                font-size: $font-size-large;
+                display: block;
+                margin-top: -5px;
+            }
+
+            .times {
+                font-weight: $font-weight-regular;
+                font-size: 14px;
+            }
+        }
+    }
+
+    .register-login-col {
+        margin-top: 10px;
+
+        p:first-child {
+            margin-bottom: 22px;
+        }
+        .btn {
+            width: 184px;
+            color: #fff;
+        }
+
+        h5 {
+            margin-top: 39px;
+            margin-bottom: 24px;
+        }
+
+        .list-unstyled {
+            li {
+                margin-bottom: 11px;
+                > a {
+                    text-decoration: none;
+                }
+            }
+        }
+    }
+}

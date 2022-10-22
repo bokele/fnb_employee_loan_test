@@ -1,0 +1,84 @@
+.navbar-form {
+    margin-left: 27px;
+    margin-top: 21px;
+    @include transition(margin);
+    .form-control {
+        height: 45px;
+        width: 261px;
+        margin-right: 5px;
+    }
+}
+
+label {
+    font-weight: $font-weight-semibold;
+}
+
+#postcode-lookup-wrapper {
+    margin-bottom: 10px;
+}
+
+.help-block {
+    font-weight: bold;
+}
+
+#postcode-lookup {
+    input {
+        margin-bottom: 10px;
+        width: 29%;
+        display: inline-block;
+        margin-right: 10px;
+    }
+
+    button {
+
+    }
+}
+
+#dummy-select {
+    color: $input-color-placeholder;
+}
+
+#postcode-lookup-results {
+    .form-group {
+        margin-bottom: 10px;
+        &:last-child {
+            margin-bottom: 25px;
+        }
+    }
+}
+
+.checkbox {
+    label {
+        padding-left: 27px;
+    }
+
+    [type="checkbox"] {
+        opacity: 0;
+        cursor: pointer;
+
+        & + span {
+            position: absolute;
+            display: block;
+            width: 20px;
+            height: 20px;
+            border: 1px solid lightgrey;
+            border-radius: 4px;
+            left: 0;
+            top: 1px;
+            pointer-events: none;
+        }
+
+        &:checked + span {
+            background-color: $brand-success;
+
+            &:after {
+                content: "\2713";
+                position: relative;
+                top: -5px;
+                left: 1px;
+                font-size: 20px;
+                color: white;
+            }
+        }
+    }
+}

@@ -1,0 +1,69 @@
+@mixin minify-nav() {
+    .navbar.navbar-default {
+        height: $navbar-height-scrolled;
+        min-height: $navbar-height-scrolled;
+    }
+
+    .navbar-toggle {
+        margin-top: 13px;
+        margin-bottom: 12px;
+    }
+
+    .navbar-form {
+        margin-left: 37px;
+        margin-top: 9px;
+    }
+
+    .navbar-default .navbar-brand {
+        width: 160px;
+        height: 40px;
+        background-image: url('/images/motorcheck-logotype.png');
+        top: 10px;
+        left: 16px;
+    }
+
+    .navbar-nav > li > a {
+        padding-top: 20px;
+        padding-bottom: 18px;
+    }
+
+    .btn.btn-login {
+        margin-top: 8px;
+        margin-bottom: 9px;
+    }
+}
+
+
+@mixin off-canvas-size($size) {
+    body {
+        .nav {
+            > li > a {
+                width: $size;
+            }
+        }
+
+        #off-canvas {
+            .off-canvas-bottom-section {
+                width: $size;
+                h4 {
+                    font-size: 14px;
+                }
+            }
+        }
+
+        // Off canvas display can only occur up to screen-xs-max
+        &.off-canvas-in {
+            #off-canvas {
+                width: $size;
+            }
+
+            .navbar.navbar-default {
+                left: $size;
+                right: -$size;
+            }
+            #site-container {
+                left: $size;
+            }
+        }
+    }
+}

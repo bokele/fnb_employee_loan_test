@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\Settings\BranchSettingController;
+use App\Http\Controllers\Settings\CollateralTypeController;
+use App\Http\Controllers\Settings\LoanTypeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -25,4 +28,16 @@ Route::middleware([
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
+    Route::prefix('admin')->group(function () {
+        Route::name('admin.')->group(function () {
+
+            Route::name('settings.')->group(function () {
+                Route::prefix('settings')->group(function () {
+                    Route::resource('branches', BranchSettingController::class)->only('index', 'create', 'edit', 'show');
+                    Route::resource('loan-types', LoanTypeController::class)->only('index', 'create', 'edit', 'show');
+                    Route::resource('collateral-types', CollateralTypeController::class)->only('index', 'create', 'edit', 'show');
+                });
+            });
+        });
+    });
 });

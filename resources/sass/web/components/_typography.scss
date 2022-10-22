@@ -1,0 +1,175 @@
+.light-text {
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    p,
+    li,
+    label {
+        color: #fff;
+    }
+}
+
+
+.page-intro {
+    h1 {
+        margin-top: 2px;
+        font-size: 47px;
+    }
+    p {
+        font-size: $font-size-h3;
+        font-weight: $font-weight-semibold;
+    }
+}
+
+p.lead {
+    font-size: 20px;
+}
+
+ul.opening-hours, ul.contact-details-list {
+    li {
+        span {
+            min-width: 50px;
+            display: inline-block;
+        }
+    }
+}
+
+ul.contact-details-list li span {
+    min-width: 220px;
+}
+
+
+.address {
+    strong {
+        font-weight: $font-weight-semibold;
+    }
+}
+
+ol.terms {
+    &, ol {
+        -webkit-padding-start: 20px;
+    }
+}
+
+ol.terms {
+    > li {
+        margin-bottom: 25px;
+        > ol {
+            > li {
+                margin-bottom: 15px;
+                > ol {
+                    margin-top: 5px;
+                    > li {
+                        margin-bottom: 10px;
+                        font-size: 14px;
+                        > ol {
+                            margin-top: 5px;
+                            margin-bottom: 10px;
+                            margin-left: 10px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+ol.terms.terms-and-conditions {
+    counter-reset: section;
+    > li {
+        counter-increment: section;
+        > ol {
+            counter-reset: subsection;
+            > li {
+                padding-left: 35px;
+                list-style-type: none;
+                &:before {
+                    content: counter(section) "." counter(subsection) " ";
+                    counter-increment: subsection;
+                    margin-left: -55px;
+                    margin-right: 8px;
+                    display: inline-block;
+                    min-width: 47px;
+                }
+            }
+        }
+    }
+}
+
+ol.list-style-lower-alpha {
+    list-style-type: lower-alpha;
+}
+
+ol.list-style-roman {
+    list-style-type: lower-roman;
+}
+
+.page-login-registration-column {
+    h2 {
+        margin-top: 15px;
+        margin-bottom: 18px;
+    }
+
+    h3 {
+        margin-top: 56px;
+    }
+
+    h5 {
+        text-transform: uppercase;
+    }
+}
+
+.error-page {
+    p {
+        font-size: 20px;
+        text-align: center;
+        margin-bottom: 25px;
+    }
+}
+
+@media (max-width: $screen-sm-max) {
+    .page-intro {
+        h1 {
+            font-size: 42px;
+        }
+        p {
+            font-size: 22px;
+        }
+    }
+}
+
+@media (max-width: $screen-xs-max) {
+    .page-intro {
+        h1 {
+            font-size: 38px;
+        }
+        p {
+            font-size: 20px;
+        }
+    }
+}
+
+
+@media (max-width: $screen-xs-min) {
+    .page-intro {
+        h1 {
+            font-size: 34px;
+        }
+        p {
+            font-size: 18px;
+        }
+    }
+}
+
+@media (max-width: $screen-xxs-max) {
+    .page-intro {
+        h1 {
+            font-size: 26px;
+        }
+        p {
+            font-size: 16px;
+        }
+    }
+}

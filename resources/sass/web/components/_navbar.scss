@@ -1,0 +1,199 @@
+.navbar.navbar-default {
+    border-color: #e4e5e7;
+    height: $navbar-height;
+    @include multiple-transitions(
+        left 0.4s ease-in-out,
+        right 0.4s ease-in-out,
+        height 0.6s ease-in-out
+    )
+
+}
+
+.basic .navbar.navbar-default {
+    height: $navbar-height-basic;   
+    min-height: $navbar-height-basic;
+}
+
+body.home-index {
+    .navbar.navbar-default {
+        border-color: #fff;
+    }
+}
+
+.navbar-default,
+.btn.btn-login,
+#off-canvas .nav > li > a {
+    font-size: 16px;
+}
+
+.btn.btn-login {
+    margin: 22px 0 23px 20px;
+    padding: 10px 18px;
+    text-transform: none;
+    @include transition(margin);
+}
+
+.btn.btn-login,
+.navbar-default .navbar-nav > li > a,
+#off-canvas .nav > li > a {
+    font-weight: $font-weight-bold;
+}
+
+.navbar-default .navbar-nav {
+    > li {
+        > a {
+            padding-left: 6px;
+            @include transition(padding);
+        }
+    }
+}
+
+form#hide-until-scroll {
+    display: block;
+
+    &.hidden {
+        display: none;
+        @media (min-width: $screen-lg) {
+            display: none !important;
+        }
+    }
+}
+
+
+.navbar-toggle {
+    margin-left: -5px;
+    margin-right: 13px;
+
+    .icon-bar {
+        width: 24px;
+    }
+    @include transition(margin);
+    &:hover .icon-bar {
+        background-color: $navbar-default-link-hover-color;
+    }
+    &.active .icon-bar {
+        background-color: $navbar-default-link-active-color;
+    }
+}
+
+
+.navbar-default .navbar-brand {
+    position: relative;
+    display: block;
+    width: 235px;
+    height: 64px;
+    background-image: url('/images/motorcheck-logo-and-tag.png');
+    background-size: cover;
+    top: 14px;
+    left: 16px;
+    background-repeat: no-repeat;
+    padding: 0;
+    @include multiple-transitions(
+        width 0.4s linear,
+        height 0.4s linear,
+        background-image 0s linear
+    )
+}
+
+.basic .clickable-header {
+    width: 160px;
+    margin: 10px 0 0 20px;
+}
+
+.basic .clickable-header img {
+    height: auto;
+    width: 100%;
+}
+
+.minify-nav {
+    @include minify-nav;
+}
+
+#off-canvas {
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100%;
+    background-color: #fff;
+    width: 0;
+    overflow: hidden;
+    @include transition(width);
+
+    // Ensure the items other than the hamburger are vertically scrollable
+    #off-canvas-inner {
+        overflow: hidden;
+        height: 100%;
+        width: calc(100% + 15px);
+    }
+
+    .nav {
+        margin-top: 24px;
+        > li > a {
+            padding: 10px 27px;
+            color: $text-color;
+            background-color: transparent !important;
+            // Prevents stacking on open/close
+            width: $off-canvas-width-open;
+            &:hover,
+            &:active {
+                color: $navbar-default-link-hover-color;
+            }
+            &.active {
+                color: $navbar-default-link-active-color;
+            }
+        }
+    }
+
+    .off-canvas-bottom-section {
+        // Prevents stacking on open/close
+        width: $off-canvas-width-open;
+        margin-top: 32px;
+        border-top: 1px solid $gray-lighter;
+        padding: 45px 30px 10px 30px;
+    }
+
+    .btn.btn-login {
+        margin-left: 0;
+    }
+
+}
+
+@media (max-width: $screen-xs-max) {
+    @include minify-nav;
+
+    body {
+        // Off canvas display can only occur up to screen-xs-max
+        &.off-canvas-in {
+            overflow-x: hidden;
+            #off-canvas {
+                width: $off-canvas-width-open;
+                z-index: 1;
+            }
+
+
+            .navbar.navbar-default {
+                left: $off-canvas-width-open;
+                right: -$off-canvas-width-open;
+            }
+
+            #site-container {
+                box-shadow: -4px 0 12px 2px rgba(0, 0, 0, 0.2);
+                z-index: 2;
+                left: $off-canvas-width-open;
+            }
+
+        }
+    }
+
+    .navbar-header {
+        float: left;
+    }
+}
+
+@media (max-width: $screen-xs-min) {
+    @include off-canvas-size($off-canvas-width-open-xs-min);
+}
+
+@media (max-width: $screen-xxs-max) {
+    @include off-canvas-size($off-canvas-width-open-xxs);
+}

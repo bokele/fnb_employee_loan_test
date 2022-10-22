@@ -1,0 +1,74 @@
+/*
+ * MANUALLY IMPORT ONLY THE BOOTSTRAP MODULES REQUIRED
+ * This is based on the MCT UK components that were originally supplied by bower
+ */
+
+// Override variables and import bootstrap variables
+@import "web/components/variables";
+@import "web/bootstrap-sass/assets/stylesheets/bootstrap/variables";
+
+
+// Bootstrap mixins and custom mixins
+@import "web/bootstrap-sass/assets/stylesheets/bootstrap/mixins";
+@import "web/components/mixins";
+
+
+
+// Reset and dependencies
+@import "web/bootstrap-sass/assets/stylesheets/bootstrap/normalize";
+@import "web/bootstrap-sass/assets/stylesheets/bootstrap/print";
+
+// Core CSS
+@import "web/bootstrap-sass/assets/stylesheets/bootstrap/scaffolding";
+@import "web/bootstrap-sass/assets/stylesheets/bootstrap/type";
+@import "web/bootstrap-sass/assets/stylesheets/bootstrap/grid";
+@import "web/bootstrap-sass/assets/stylesheets/bootstrap/tables";
+@import "web/bootstrap-sass/assets/stylesheets/bootstrap/forms";
+@import "web/bootstrap-sass/assets/stylesheets/bootstrap/buttons";
+
+// Components
+@import "web/bootstrap-sass/assets/stylesheets/bootstrap/component-animations";
+@import "web/bootstrap-sass/assets/stylesheets/bootstrap/dropdowns";
+@import "web/bootstrap-sass/assets/stylesheets/bootstrap/button-groups";
+@import "web/bootstrap-sass/assets/stylesheets/bootstrap/input-groups";
+@import "web/bootstrap-sass/assets/stylesheets/bootstrap/navs";
+@import "web/bootstrap-sass/assets/stylesheets/bootstrap/navbar";
+@import "web/bootstrap-sass/assets/stylesheets/bootstrap/breadcrumbs";
+@import "web/bootstrap-sass/assets/stylesheets/bootstrap/pagination";
+@import "web/bootstrap-sass/assets/stylesheets/bootstrap/labels";
+@import "web/bootstrap-sass/assets/stylesheets/bootstrap/badges";
+@import "web/bootstrap-sass/assets/stylesheets/bootstrap/alerts";
+@import "web/bootstrap-sass/assets/stylesheets/bootstrap/list-group";
+@import "web/bootstrap-sass/assets/stylesheets/bootstrap/panels";
+@import "web/bootstrap-sass/assets/stylesheets/bootstrap/close";
+
+// Components w/ JavaScript
+@import "web/bootstrap-sass/assets/stylesheets/bootstrap/modals";
+@import "web/bootstrap-sass/assets/stylesheets/bootstrap/popovers";
+
+// Utility classes
+@import "web/bootstrap-sass/assets/stylesheets/bootstrap/utilities";
+@import "web/bootstrap-sass/assets/stylesheets/bootstrap/responsive-utilities";
+
+/*
+ * IMPORT CUSTOM SASS FILES HERE
+ * but the big plus here is you can now override bootstrap variables with our own settings,
+ * rather than writing a new declaration which overrides the bootstrap one
+ * eg bootstrap says
+ * $headings-font-family:    inherit !default;
+ *
+ * Now, instead of doing h1 font-family, h2 font-family etc we can just override the variable
+ */
+
+@import "web/components/icons";
+@import "web/components/scaffolding";
+@import "web/components/containers";
+@import "web/components/navbar";
+@import "web/components/common";
+@import "web/components/footer";
+@import "web/components/typography";
+@import "web/components/panels";
+@import "web/components/forms";
+@import "web/components/alerts";
+@import "web/components/breadcrumbs";
+@import "web/components/buttons";

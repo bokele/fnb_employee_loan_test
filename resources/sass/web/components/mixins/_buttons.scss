@@ -1,0 +1,66 @@
+@mixin button-hover-active-override($hover-color, $active-color) {
+    &:focus,
+    &.focus,
+    &:hover {
+        color: #fff;
+        background-color: $hover-color;
+        border-color: $hover-color;
+    }
+
+    &:active,
+    &.active,
+    .open > &.dropdown-toggle {
+        color: #fff;
+        background-color: $active-color;
+        border-color: $active-color;
+
+        &:hover,
+        &:focus,
+        &.focus {
+            color: #fff;
+            background-color: $active-color;
+            border-color: $active-color;
+        }
+    }
+}
+
+@mixin button-disabled-override($color, $background-color, $border-color) {
+    &.disabled,
+    &[disabled],
+    fieldset[disabled] & {
+        &,
+        &:hover,
+        &:focus,
+        &.focus {
+            color: $color;
+            background-color: $background-color;
+            border-color: $border-color;
+        }
+    }
+
+}
+
+@mixin button-outline-variant($color, $hover-color, $active-color) {
+    color: $color;
+    background-color: transparent;
+    border-color: $color;
+    border-radius: 20px;
+    border-width: 2px;
+    padding: 8px 45px;
+    font-size: 14px;
+
+
+    @include button-hover-active-override($hover-color, $active-color);
+
+    &:active,
+    &.active,
+    .open > &.dropdown-toggle {
+        background-image: none;
+    }
+    @include button-disabled-override($gray-light, #fff, $gray-light);
+
+    .badge {
+        color: #fff;
+        // background-color: $badge-color;
+    }
+}

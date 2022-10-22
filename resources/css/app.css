@@ -1,3 +1,16 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@import "web/components/icons";
+@import "web/components/scaffolding";
+@import "web/components/containers";
+@import "web/components/navbar";
+@import "web/components/common";
+@import "web/components/footer";
+@import "web/components/typography";
+@import "web/components/panels";
+@import "web/components/forms";
+@import "web/components/alerts";
+@import "web/components/breadcrumbs";
+@import "web/components/buttons";

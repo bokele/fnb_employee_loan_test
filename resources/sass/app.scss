@@ -1,0 +1,85 @@
+@import 'flatpickr/dist/flatpickr.css';
+@import 'tippy.js/dist/tippy.css';
+
+[x-cloak] {
+    display: none !important;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+/** Checkbox and radio input styling taken from https: //github.com/tailwindlabs/tailwindcss-forms **/
+input[type=checkbox], input[type=radio],
+.form-checkbox, .form-radio {
+    appearance: none;
+    padding: 0;
+    print-color-adjust: exact;
+    display: inline-block;
+    vertical-align: middle;
+    background-origin: border-box;
+    user-select: none;
+    flex-shrink: 0;
+    @apply w-5;
+    @apply h-5;
+    @apply text-alert-success;
+    background-color: #fff;
+    @apply border;
+    @apply border-gray-400;
+    --tw-shadow: 0 0 #0000;
+}
+
+input[type=checkbox], .form-checkbox {
+    border-radius: none;
+}
+ 
+input[type=radio], .form-radio {
+    border-radius: 100%;
+}
+
+input[type=checkbox]:focus, input[type=radio]:focus, 
+.form-checkbox:focus, .form-radio:focus {
+    outline: 2px solid transparent;
+    outline-offset: 2px;
+    @apply ring-alert-success;
+    @apply ring-offset-alert-success;
+    @apply ring-offset-2;
+    @apply ring-inset;
+}
+    
+input[type=checkbox]:checked, .form-checkbox:checked {
+    border-color: transparent;
+    background-color: currentColor;
+    background-size: 100% 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url('data:image/svg+xml;utf8,<svg viewBox="0 0 16 16" fill="white" xmlns="http://www.w3.org/2000/svg" ><path d="M12.207 4.793a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0l-2-2a1 1 0 011.414-1.414L6.5 9.086l4.293-4.293a1 1 0 011.414 0z" /></svg>')
+}
+
+input[type=radio], .form-radio {
+    background-image: url('data:image/svg+xml;utf8,<svg viewBox="0 0 16 16" fill="white" xmlns="http://www.w3.org/2000/svg" ><circle cx="8" cy="8" r="3" /></svg>')
+}
+
+input[type=checkbox]:checked:hover, input[type=checkbox]:checked:focus, input[type=radio]:checked:hover,
+input[type=radio]:checked:focus, .form-checkbox:checked:hover, .form-checkbox:checked:focus,
+.form-radio:checked:hover, .form-radio:checked:focus {
+    border-color: transparent;
+    background-color: currentColor;
+}
+
+input[type=checkbox]:indeterminate, .form-checkbox:indeterminate {
+    border-color: transparent;
+    background-color: currentColor;
+    background-size: 100% 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image : url('data: image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 16" ><path stroke="white" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8h8" /></svg>')
+}
+    
+input[type=checkbox]:indeterminate:hover, input[type=checkbox]:indeterminate:focus,
+form-checkbox:indeterminate:hover, .form-checkbox:indeterminate:focus {
+    border-color: transparent;
+    background-color: currentColor;
+}
+

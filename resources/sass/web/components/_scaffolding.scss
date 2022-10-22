@@ -1,0 +1,51 @@
+// Override some of the non-variable assigned scaffolding options
+a:not(.btn) {
+    text-decoration: underline;
+}
+
+nav a,
+.nav a,
+a.navbar-brand,
+a.list-group-item {
+    text-decoration: none;
+}
+
+body {
+
+    &.web-page-home {
+        // TEMPORARY DIRTY FIX FOR HOME PAGE LARGE IMAGE ISSUE
+        overflow-x: hidden;
+    }
+
+    // Removed this as we need to have a box-shadow left on the body > #site-container
+    // padding-top: $navbar-height;
+    #site-container {
+        padding-top: $navbar-height;
+        position: relative;
+        left: 0;
+        @include transition(left);
+    }
+
+    &.basic {
+        background-color: $basic-body-bg;
+        padding-top: 80px;
+
+        #site-container {
+            padding-top: 0;
+        }
+    }
+}
+
+@media(max-width: $screen-xs-min) {
+    .stack-screen-xs-min > [class*='col-'] {
+        @include make-xs-column(12);
+    }
+}
+
+@media(max-width: $screen-xs-max) {
+    body {
+        #site-container {
+            padding-top: $navbar-height-scrolled;
+        }
+    }
+}

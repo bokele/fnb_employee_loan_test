@@ -23,6 +23,47 @@ module.exports = {
             sans: ["Ubuntu", "Sans-serif"],
         },
         extend: {
+            colors: {
+                mc: {
+                    menu: "#595858",
+                    tr: "#f9f9f9",
+                    dark: "#302e2e",
+                    black: "#141313",
+                },
+                mcblue: {
+                    100: "#5e85b2",
+                },
+                mcgreen: {
+                    50: "#6dc48d",
+                    100: "#269c58",
+                    200: "#327e4f",
+                },
+                mcred: {
+                    200: "#f16357",
+                    300: "#e55240",
+                },
+                mcgray: {
+                    50: "#eee",
+                    100: "#f0f0f0",
+                    200: "#f4f4f4",
+                    250: "#f6f6f6",
+                    300: "#acabab",
+                    350: "#838282",
+                    400: "#dadcde",
+                    500: "#d3d3d3",
+                    600: "#d7d7d7",
+                    700: "#8e8c8c",
+                },
+                mcyellow: {
+                    300: "#edda0c",
+                },
+                alert: {
+                    success: "#48b571",
+                    warning: "#f39c12",
+                    info: "#3498db",
+                    error: "#ee3c2d",
+                },
+            },
             fontFamily: {
                 sans: ["Nunito", ...defaultTheme.fontFamily.sans],
             },

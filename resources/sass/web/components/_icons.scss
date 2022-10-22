@@ -1,0 +1,81 @@
+@font-face {
+  font-family: 'motorcheck-public-v1';
+  src: url('/font/motorcheck-public-v1.eot?58601821');
+  src: url('/font/motorcheck-public-v1.eot?58601821#iefix') format('embedded-opentype'),
+       url('/font/motorcheck-public-v1.woff2?58601821') format('woff2'),
+       url('/font/motorcheck-public-v1.woff?58601821') format('woff'),
+       url('/font/motorcheck-public-v1.ttf?58601821') format('truetype'),
+       url('/font/motorcheck-public-v1.svg?58601821#motorcheck-public-v1') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^="icon-"]:before,
+[class*=" icon-"]:before {
+    font-family: 'motorcheck-public-v1';
+    font-style: normal;
+    font-weight: normal;
+    speak: none;
+
+    display: inline-block;
+    text-decoration: inherit;
+    width: 1em;
+    margin-right: .2em;
+    text-align: center;
+
+    font-variant: normal;
+    text-transform: none;
+
+    line-height: 1em;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+
+p > .icon,
+.list-group-item-heading > .icon {
+    color: $gray-light;
+}
+
+.icon-inline {
+    padding-left: 2em;
+    position: relative;
+    &:before {
+        @include icon-inline
+    }
+}
+
+.icon-with-counter{
+    position: relative;
+}
+
+p.icon-inline:before {
+    top: 3px;
+}
+
+.icon-black:before {color: #201f1f;}
+.icon-green:before {color: #58b46d;}
+.icon-orange:before {color: #ff8800;}
+.icon-red:before {color: #e43925;}
+.icon-blue:before {color: #1e73a3;}
+.icon-purple:before {color: #4f2892;}
+
+.icon-vehicle-identity:before {content: '\e801';}
+.icon-finance:before {content: '\e800';}
+.icon-write-off:before {content: '\e80a';}
+.icon-stolen:before {content: '\e807';}
+.icon-mileage:before {content: '\e802';}
+.icon-previous-owner:before {content: '\e805';}
+.icon-cherished-plate:before {content: '\e804';}
+.icon-mot-tax:before {content: '\e803';}
+.icon-valuations:before {content: '\e808';}
+.icon-cash-offers:before {content: '\e80c';}
+.icon-running-costs:before {content: '\e806';}
+.icon-manufacturer-warranty:before {content: '\e809';}
+.icon-info-circled:before {content: '\e80e';}
+.icon-attention-circled:before {content: '\e810';}
+.icon-ok-circled:before {content: '\e821';}
+.icon-chevron-right:before {content: '\e833';}
+.icon-chevron-down:before {content: '\e835';}
+.icon-chevron-left:before {content: '\e836';}
+.icon-chevron-up:before {content: '\e837';}

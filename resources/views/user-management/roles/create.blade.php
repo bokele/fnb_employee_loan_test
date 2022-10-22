@@ -1,4 +1,4 @@
 <x-app-layout :title="$title">
 
-    <livewire:user-management.role.create-role-livewire />
+    <livewire:user-management.user.index-User-livewire />
 </x-app-layout>

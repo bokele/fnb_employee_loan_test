@@ -10,14 +10,16 @@
             </x-form.input-group>
             {{-- Rate--}}
             @if($roleList->count())
-            @foreach($roleList as $id => $name)
-            <x-form.input-group>
+            <x-form.input-group class="inline-flex space-x-3">
+                @foreach($roleList as $id => $name)
 
-                <x-form.checkbox id="permissions-{{ $id }}" name="permissions[]" wire:model.defer="permissions"
+
+                <x-form.checkbox id="roles-{{ $id }}" name="roles[]" wire:model.defer="roles.{{ $id }}"
                     value="{{ $id }}" />
-                <x-form.label for="permissions-{{ $id }}" value="{{ $name }}" />
+                <x-form.label for="roles-{{ $id }}" value="{{ $name }}" />
+
+                @endforeach
             </x-form.input-group>
-            @endforeach
             @endif
 
         </div>

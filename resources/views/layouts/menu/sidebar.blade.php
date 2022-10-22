@@ -61,6 +61,11 @@
             <i class="fad fa-users text-xs mr-2"></i>
             Role
         </a>
+        <a href="{{route('admin.user-management.users.index')}}"
+            class="mb-3 capitalize font-medium text-sm hover:text-teal-600 transition ease-in-out duration-500">
+            <i class="fad fa-users text-xs mr-2"></i>
+            User
+        </a>
         <!-- end link -->
     </div>
     <!-- end sidebar content -->

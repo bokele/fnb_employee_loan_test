@@ -25,11 +25,8 @@ return new class extends Migration
             $table->unsignedBigInteger('base_salary')->default(0);
             $table->string('id_type')->default('nrc');
             $table->text('id_number')->nullable();
-            $table->text('tpin')->nullable();
             $table->string('gender')->nullable();
-            $table->string('marital_status')->nullable();
-            $table->string('nationality')->nullable();
-            $table->string('postal_address')->nullable();
+            $table->string('job_type')->nullable();
             $table->string('id_path')->nullable();
             $table->string('password');
             $table->rememberToken();

@@ -63,9 +63,12 @@ class EditPermissionLivewire extends Component
 
     public function mount($hashid)
     {
-        $this->permission = Permission::where("id", $hashid)->firstOrFail();
+        $this->permission = Permission::with("roles")->where("id", $hashid)->firstOrFail();
         $this->roleList = $this->getRoles();
         $this->name = $this->permission->name;
+
+        $setOfIds = $this->permission->roles->pluck('id')->toArray();
+        $this->roles = array_fill_keys($setOfIds, true);
     }
 
     protected function getRoles()
@@ -96,7 +99,7 @@ class EditPermissionLivewire extends Component
 
 
 
-        $permission->syncRoles($this->roles);
+        $permissionupdate->syncRoles($this->roles);
 
         if ($permissionupdate != null) {
             $this->resetFilters();

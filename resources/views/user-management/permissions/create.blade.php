@@ -1,4 +1,4 @@
 <x-app-layout :title="$title">
 
-    <livewire:user-management.role.create-permission-livewire />
+    <livewire:user-management.permission.create-permission-livewire />
 </x-app-layout>

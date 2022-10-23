@@ -29,14 +29,15 @@ class Loan extends Model
 
     ];
 
-    /**
-     * Interact with the user's first name.
-     *
-     * @return \Illuminate\Database\Eloquent\Casts\Attribute
-     */
     protected function loanInterest(): Attribute
     {
-        $format = new FormatedNumber();
+        return Attribute::make(
+            get: fn ($value) => $value / 100,
+            set: fn ($value) => $value * 100,
+        );
+    }
+    protected function interestRate(): Attribute
+    {
 
         return Attribute::make(
             get: fn ($value) => $value / 100,
@@ -45,10 +46,9 @@ class Loan extends Model
     }
 
 
+
     protected function principal(): Attribute
     {
-
-        $format = new FormatedNumber();
         return Attribute::make(
             get: fn ($value) => $value / 100,
             set: fn ($value) => $value * 100,
@@ -56,8 +56,6 @@ class Loan extends Model
     }
     protected function loanTotalAmount(): Attribute
     {
-
-        $format = new FormatedNumber();
         return Attribute::make(
             get: fn ($value) => $value / 100,
             set: fn ($value) => $value * 100,
@@ -65,8 +63,6 @@ class Loan extends Model
     }
     protected function loanBalanceAmount(): Attribute
     {
-
-
         return Attribute::make(
             get: fn ($value) => $value / 100,
             set: fn ($value) => $value * 100,

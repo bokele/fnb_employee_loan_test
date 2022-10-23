@@ -22,7 +22,7 @@
             {{ __('Dashboard') }}
         </a>
         <!-- end link -->
-        @hasallroles('admin')
+        {{-- @hasallroles('admin') --}}
 
         <!-- end link -->
         <p class="uppercase text-xs text-gray-600 mb-4 mt-4 tracking-wider">
@@ -67,7 +67,7 @@
             User
         </a>
         <!-- end link -->
-        @endhasallroles
+        {{-- @endhasallroles --}}
 
         <!-- end link -->
         @hasallroles('staff|admin')

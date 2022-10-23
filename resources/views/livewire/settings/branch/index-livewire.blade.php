@@ -27,8 +27,6 @@
                 <x-table.body>
                     @if (count($branches))
                     @foreach ($branches as $branch )
-
-
                     <x-table.tr>
                         <x-table.td>{{$branch->branch_name}}</x-table.td>
                         <x-table.td>{{$branch->phone_number}}</x-table.td>
@@ -42,7 +40,7 @@
 
                     @else
                     <x-table.tr>
-                        <x-table.td colspan="4">{{$branch->branch_name}}</x-table.td>
+                        <x-table.td colspan="4">No Data</x-table.td>
 
                     </x-table.tr>
                     @endif

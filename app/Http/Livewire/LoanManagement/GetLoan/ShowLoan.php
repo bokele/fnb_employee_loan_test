@@ -31,15 +31,11 @@ class ShowLoan extends Component
     {
 
 
-        $hashid = $this->hashid;
-        $loan = Loan::where("created_by", auth()->id())->where(function ($query) {
-            $query->OrWhere('loan_status', 'pending')
-                ->OrWhere('loan_status', 'verified')
-                ->OrWhere('loan_status', 'approved')
-                ->OrWhere('loan_status', 'disbursed');
-        })->first();
 
-        if ($loan != null) {
+        $hashid = $this->hashid;
+        $myNextLoan = User::getetNextLoanDate()->first();
+
+        if ($myNextLoan != null) {
             session()->flash('danger', 'You can not submit this Form. You have a running or pending Loan');
             return redirect()->route('loan-management.get-loans.show', $hashid);
         } else {
@@ -133,7 +129,7 @@ class ShowLoan extends Component
 
         $loan->loan_status = "disbursed";
         $loan->disbursed_by = auth()->id();
-        $loan->verified_at = Carbon::now();
+        $loan->disbursed_at = Carbon::now();
         $loan->next_date =  $next_date;
         $loan->update();
 

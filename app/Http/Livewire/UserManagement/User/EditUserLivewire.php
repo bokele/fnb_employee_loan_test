@@ -184,7 +184,7 @@ class EditUserLivewire extends Component
 
         $user->assignRole($this->roles);
 
-        $user->syncPermissions(['edit articles', 'delete articles']);
+        // $user->syncPermissions(['edit articles', 'delete articles']);
 
         if ($userUpdate != null) {
             $this->resetFilters();

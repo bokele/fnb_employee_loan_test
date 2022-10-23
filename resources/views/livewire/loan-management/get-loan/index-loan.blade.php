@@ -61,6 +61,10 @@
                             <span
                                 class="rounded-xl bg-red-300 px-2 py-1 text-xs text-red-700">{{$loan->loan_status}}</span>
                             @endif
+                            @if ($loan->loan_status == "paid")
+                            <span
+                                class="rounded-xl bg-blue-300 px-2 py-1 text-xs text-blue-700">{{$loan->loan_status}}</span>
+                            @endif
                         </x-table.td>
 
                         <x-table.td>{{$loan->user ? $loan->user->name : ""}}</x-table.td>

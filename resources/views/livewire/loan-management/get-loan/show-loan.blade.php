@@ -59,8 +59,8 @@
                         </x-table.td>
                     </x-table.tr>
                     <x-table.tr>
-                        <x-table.td>CREATE BY</x-table.td>
-                        <x-table.td>{{$loan->user ? $loan->user->name : ""}}</x-table.td>
+                        <x-table.td>NEXT LOAN DATE</x-table.td>
+                        <x-table.td>{{$loan->next_date}}</x-table.td>
                     </x-table.tr>
                     <x-table.tr>
                         <x-table.td>LOAN TYPE</x-table.td>
@@ -108,10 +108,9 @@
                         </x-table.td>
                     </x-table.tr>
                     <x-table.tr>
-                        <x-table.td>CREATED AT</x-table.td>
-                        <x-table.td>{{$loan->updated_at}}</x-table.td>
+                        <x-table.td>CREATE AT & BY</x-table.td>
+                        <x-table.td>{{$loan->updated_at}}, {{$loan->user ? $loan->user->name : ""}}</x-table.td>
                     </x-table.tr>
-
                     <x-table.tr>
                         <x-table.td>UPDATED AT</x-table.td>
                         <x-table.td>{{$loan->updated_at}}</x-table.td>

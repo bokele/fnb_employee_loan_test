@@ -10,7 +10,7 @@
             </x-form.input-group>
             {{-- Rate--}}
             @if($permissionList->count())
-            <x-form.input-group class="inline-flex space-x-3">
+            <x-form.input-group class="inline-flex  grid grid-cols-6 sm:grid-cols-6  place-items-start">
                 @foreach($permissionList as $id => $name)
 
 

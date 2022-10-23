@@ -15,6 +15,7 @@ class LoanComment extends Model
     use HashidTrait;
     use UserActionTrait;
 
+
     protected $fillable = [
         'hashid',
         'created_by',

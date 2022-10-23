@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('loan_comments', function (Blueprint $table) {
             $table->id();
             $table->string("hashid")->nullable();
-            $table->integer('created_by')->unsigned();
+            $table->integer('created_by')->nullable()->unsigned();
             $table->integer('loan_id')->unsigned();
             $table->text('comment')->nullable();
             $table->timestamps();

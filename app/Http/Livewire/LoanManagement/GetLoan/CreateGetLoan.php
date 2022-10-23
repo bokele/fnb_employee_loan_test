@@ -107,7 +107,6 @@ class CreateGetLoan extends Component
         $loan_interest = (floatval($this->principal) *  floatval($loan_type->rate)) / 100;
         $loan_total_amount = $loan_interest +  floatval($this->principal);
 
-
         $loan = Loan::create([
             "loan_type_id" => $this->loanType,
             "loan_reference_number" => $loanId,
@@ -116,7 +115,7 @@ class CreateGetLoan extends Component
             "interest_rate" => $loan_type->rate,
             "loan_interest" =>  $loan_interest,
             'loan_total_amount' => $loan_total_amount,
-            'interest_period' => $loan_total_amount,
+            'loan_balance_amount' => $loan_total_amount,
             'loan_duration' => $this->loanDuration,
             'loan_duration_type' => $this->loanDurationType,
             'description' => $this->comment,

@@ -103,12 +103,17 @@ class EditLoan extends Component
     {
         $this->validate();
         $hashid = $this->hashid;
+        $loan = Loan::where("hashid", $hashid)->firstOrFail();
+        if (auth()->id() != $loan->created_by) {
+            session()->flash('danger', 'You can not Edit this Loan');
+            return redirect()->route('loan-management.get-loans.create');
+        }
 
         $loan_type = LoanType::where('id', $this->loanType)->firstOrFail();
         $loan_interest = (floatval($this->principal) *  floatval($loan_type->rate)) / 100;
         $loan_total_amount = $loan_interest +  floatval($this->principal);
 
-        $loan = Loan::where("hashid", $hashid)->firstOrFail();
+
 
         $loanUpdated = $loan->update([
             "loan_type_id" => $this->loanType,

@@ -124,6 +124,7 @@
             <p>Comment or Desciption</p>
             <p>{{$loan->description}}</p>
         </div>
+
         @if (count($loan->loanComments))
         @foreach ($loan->loanComments as $comment )
         <div class="p-7 ">
@@ -132,6 +133,7 @@
         </div>
         @endforeach
         @endif
+
         @isset($hashid)
         @if ($loan->loan_status == "draft")
         <div class="bg-mcgray-250">
@@ -147,8 +149,9 @@
                 </x-layout.submit-loan-modal>
             </div>
         </div>
-
         @endif
+
+        @hasallroles('admin')
 
         @if ($loan->loan_status == "pending")
         <div class="bg-mcgray-250">
@@ -171,7 +174,6 @@
                 </x-layout.verified-loan-modal>
             </div>
         </div>
-
         @endif
 
         @if ($loan->loan_status == "verified")
@@ -195,7 +197,6 @@
                 </x-layout.approved-loan-modal>
             </div>
         </div>
-
         @endif
 
         @if ($loan->loan_status == "approved")
@@ -219,7 +220,6 @@
                 </x-layout.disbursed-loan-modal>
             </div>
         </div>
-
         @endif
 
         @if ($loan->loan_status == "disbursed")
@@ -243,7 +243,6 @@
                     </x-layout.pa-loan-modal>
             </div>
         </div>
-
         @endif
 
         @if ($loan->loan_status == "approved" || $loan->loan_status == "verified" || $loan->loan_status == "pending")
@@ -270,6 +269,7 @@
         </div>
         @endif
 
+        @endhasallroles
 
         @endisset
     </div>

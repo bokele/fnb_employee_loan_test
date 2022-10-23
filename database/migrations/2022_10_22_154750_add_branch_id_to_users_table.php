@@ -15,7 +15,6 @@ return new class extends Migration
     {
         Schema::table('users', function (Blueprint $table) {
             $table->foreignId("branch_id")->nullable();
-            $table->foreignId("created_by")->nullable();
         });
     }
 

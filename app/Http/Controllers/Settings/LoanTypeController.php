@@ -7,6 +7,19 @@ use Illuminate\Http\Request;
 
 class LoanTypeController extends Controller
 {
+    public function __construct(Request $request)
+    {
+
+
+        $this->middleware(function ($request, $next) {
+            if (!auth()->user()->hasRole('admin')) {
+                abort(403);
+            }
+
+            return $next($request);
+        });
+    }
+
     /**
      * Display a listing of the resource.
      *

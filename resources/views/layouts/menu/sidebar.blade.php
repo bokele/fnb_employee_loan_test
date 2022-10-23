@@ -22,7 +22,7 @@
             {{ __('Dashboard') }}
         </a>
         <!-- end link -->
-
+        @hasallroles('admin')
 
         <!-- end link -->
         <p class="uppercase text-xs text-gray-600 mb-4 mt-4 tracking-wider">
@@ -67,8 +67,10 @@
             User
         </a>
         <!-- end link -->
+        @endhasallroles
 
         <!-- end link -->
+        @hasallroles('staff|admin')
         <p class="uppercase text-xs text-gray-600 mb-4 mt-4 tracking-wider">
             <x-icons.cog-icon class="w-4 h-4" /> {{ __('Loan Management') }}
         </p>
@@ -84,6 +86,7 @@
             <i class="fad fa-users text-xs mr-2"></i>
             List of Loan
         </a>
+        @endhasallroles
     </div>
     <!-- end sidebar content -->
 

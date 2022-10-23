@@ -4,9 +4,23 @@ namespace App\Http\Controllers\Settings;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class BranchSettingController extends Controller
 {
+
+    public function __construct(Request $request)
+    {
+
+
+        $this->middleware(function ($request, $next) {
+            if (!auth()->user()->hasRole('admin')) {
+                abort(403);
+            }
+
+            return $next($request);
+        });
+    }
     /**
      * Display a listing of the resource.
      *

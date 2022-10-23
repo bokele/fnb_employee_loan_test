@@ -9,6 +9,19 @@ use App\Http\Controllers\Controller;
 
 class RoleController extends Controller
 {
+    public function __construct(Request $request)
+    {
+
+
+        $this->middleware(function ($request, $next) {
+            if (!auth()->user()->hasRole('admin')) {
+                abort(403);
+            }
+
+            return $next($request);
+        });
+    }
+
     public function index(): View
     {
 

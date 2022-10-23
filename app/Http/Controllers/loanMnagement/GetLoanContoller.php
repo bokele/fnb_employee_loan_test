@@ -9,6 +9,18 @@ use App\Http\Controllers\Controller;
 
 class GetLoanContoller extends Controller
 {
+    public function __construct(Request $request)
+    {
+
+
+        $this->middleware(function ($request, $next) {
+            if (!auth()->user()->hasRole(['staff', 'admin'])) {
+                abort(403);
+            }
+
+            return $next($request);
+        });
+    }
 
     public function index(): View
     {

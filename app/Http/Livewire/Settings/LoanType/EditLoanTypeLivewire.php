@@ -4,6 +4,7 @@ namespace App\Http\Livewire\Settings\LoanType;
 
 use Livewire\Component;
 use App\Models\LoanType;
+use Illuminate\Validation\Rule;
 
 class EditLoanTypeLivewire extends Component
 {
@@ -31,7 +32,7 @@ class EditLoanTypeLivewire extends Component
     public function mount($hashid)
     {
         $this->loanTypeToUpdate = LoanType::where("hashid", $hashid)->firstOrFail();
-        $this->loanType = $this->loanTypeToUpdate->loan_type;
+        $this->loanType = $this->loanTypeToUpdate->type;
         $this->rate  = $this->loanTypeToUpdate->rate;
     }
 
@@ -59,7 +60,7 @@ class EditLoanTypeLivewire extends Component
     protected function rules()
     {
         return [
-            'loanType' => 'required|unique:loan_types,type',
+            'loanType' => ['required', Rule::unique('loan_types', 'type')->ignore($this->loanTypeToUpdate->id)],
             'rate' => ['required', 'numeric'],
         ];
     }

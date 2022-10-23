@@ -5,6 +5,7 @@ namespace App\Http\Livewire\UserManagement\Permission;
 use Livewire\Component;
 use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
+use Illuminate\Validation\Rule;
 
 class EditPermissionLivewire extends Component
 {
@@ -50,7 +51,7 @@ class EditPermissionLivewire extends Component
     protected function rules()
     {
         return [
-            'name' => ['required', 'string'],
+            'name' => ['required', 'string', Rule::unique('permissions', 'name')->ignore($this->permission->id)],
             // 'roles' => ['array'],
         ];
     }
@@ -98,9 +99,6 @@ class EditPermissionLivewire extends Component
         ]);
 
 
-
-        $permissionupdate->syncRoles($this->roles);
-
         if ($permissionupdate != null) {
             $this->resetFilters();
             session()->flash('success', 'Permission has been created.');
@@ -120,10 +118,10 @@ class EditPermissionLivewire extends Component
         if ($permission != null) {
             $this->resetFilters();
             session()->flash('success', 'Permission has been deletd.');
-            return redirect()->route('dmin.user-management.permissions.index');
+            return redirect()->route('admin.user-management.permissions.index');
         } else {
             session()->flash('danger', 'Something went wrong. Please try again or contact support.');
-            return redirect()->route('dmin.user-management.permissions.edit',  $hashid);
+            return redirect()->route('admin.user-management.permissions.edit',  $hashid);
         }
     }
 }

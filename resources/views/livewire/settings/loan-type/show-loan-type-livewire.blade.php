@@ -24,7 +24,7 @@
                     </x-table.tr>
                     <x-table.tr>
                         <x-table.td>RATE</x-table.td>
-                        <x-table.td>{{$loanType->rate}}</x-table.td>
+                        <x-table.td>{{$loanType->rate}} %</x-table.td>
                     </x-table.tr>
                     <x-table.tr>
                         <x-table.td>CREATED AT</x-table.td>

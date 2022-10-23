@@ -22,7 +22,7 @@
             {{ __('Dashboard') }}
         </a>
         <!-- end link -->
-
+        @hasallroles('admin')
 
         <!-- end link -->
         <p class="uppercase text-xs text-gray-600 mb-4 mt-4 tracking-wider">
@@ -67,6 +67,26 @@
             User
         </a>
         <!-- end link -->
+        @endhasallroles
+
+        <!-- end link -->
+        @hasallroles('staff|admin')
+        <p class="uppercase text-xs text-gray-600 mb-4 mt-4 tracking-wider">
+            <x-icons.cog-icon class="w-4 h-4" /> {{ __('Loan Management') }}
+        </p>
+
+        <!-- link -->
+        <a href="{{route('loan-management.get-loans.create')}}"
+            class="mb-3 capitalize font-medium text-sm hover:text-teal-600 transition ease-in-out duration-500">
+            <i class="fad fa-users text-xs mr-2"></i>
+            Get Loan
+        </a>
+        <a href="{{route('loan-management.get-loans.index')}}"
+            class="mb-3 capitalize font-medium text-sm hover:text-teal-600 transition ease-in-out duration-500">
+            <i class="fad fa-users text-xs mr-2"></i>
+            List of Loan
+        </a>
+        @endhasallroles
     </div>
     <!-- end sidebar content -->
 

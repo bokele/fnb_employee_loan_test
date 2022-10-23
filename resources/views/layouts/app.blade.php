@@ -11,7 +11,7 @@
     <link rel="icon" type="image/png" sizes="16x16" href="{{asset('assets/favicon_io/favicon-16x16.png')}}">
     <link rel="manifest" href="{{asset('assets/favicon_io/site.webmanifest')}}">
 
-    <title>{{ $title. " | " ?? ''}} {{ config('app.name', 'Laravel') }} </title>
+    <title>@isset($title) {{$title. " - " }} @endisset{{ config('app.name', 'Laravel') }} </title>
 
     <!-- Fonts -->
     <link rel="stylesheet" href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap">

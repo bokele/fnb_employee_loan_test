@@ -2,12 +2,26 @@
 
 namespace App\Http\Controllers\UserManagement;
 
-use App\Http\Controllers\Controller;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Contracts\View\View;
+use App\Http\Controllers\Controller;
 
 class UserController extends Controller
 {
+    public function __construct(Request $request)
+    {
+
+
+        $this->middleware(function ($request, $next) {
+            if (!auth()->user()->hasRole('admin')) {
+                abort(403);
+            }
+
+            return $next($request);
+        });
+    }
+
     public function index(): View
     {
 
@@ -31,11 +45,12 @@ class UserController extends Controller
 
 
 
-    public function edit($hashid): View
+    public function edit($id): View
     {
+        $user = User::findOrFail($id);
         $data = [
             'title' => "User Edit",
-            "hashid" => $hashid
+            "hashid" => $user->hashid
         ];
         return view('user-management.users.edit')->with($data);
     }

@@ -1,5 +1,5 @@
 <div>
-    <x-layout.section-heading heading="Create Role">
+    <x-layout.section-heading heading="Edit Role">
 
         <div class="flex">
             <x-layout.heading-icon-container route="admin.user-management.roles.index">

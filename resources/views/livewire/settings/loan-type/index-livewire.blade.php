@@ -33,7 +33,7 @@
                     <x-table.tr>
                         <x-table.td>{{$loanType->createdBy? $loanType->createdBy->name : ""}}</x-table.td>
                         <x-table.td>{{$loanType->type}}</x-table.td>
-                        <x-table.td>{{$loanType->rate}}</x-table.td>
+                        <x-table.td>{{$loanType->rate}} %</x-table.td>
                         <x-table.td>{{$loanType->updated_at}}</x-table.td>
                         <x-table.td><a title="Edit Loan Type"
                                 href="{{route('admin.settings.loan-types.edit', $loanType->hashid)}}">

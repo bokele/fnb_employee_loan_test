@@ -8,7 +8,7 @@
                 <x-form.input id="name" type="text" placeholder="Name" name="name" wire:model.defer="name" />
                 <x-form.input-error for="name"></x-form.input-error>
             </x-form.input-group>
-            {{-- Rate--}}
+            {{-- Rate
             @if($roleList->count())
             <x-form.input-group class="inline-flex space-x-3">
                 @foreach($roleList as $id => $name)
@@ -20,7 +20,7 @@
 
                 @endforeach
             </x-form.input-group>
-            @endif
+            @endif --}}
 
         </div>
         <div class="col-span-2 mt-10">

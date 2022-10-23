@@ -47,7 +47,7 @@ class CreatePermissionLivewire extends Component
     protected function rules()
     {
         return [
-            'name' => ['required', 'string'],
+            'name' => ['required', 'string', 'unique:permissions,name'],
             // 'roles' => ['array'],
         ];
     }
@@ -87,10 +87,6 @@ class CreatePermissionLivewire extends Component
         $permission = Permission::create([
             "name" => $this->name
         ]);
-
-
-
-        $permission->syncRoles($this->roles);
 
         if ($permission != null) {
             $this->resetFilters();

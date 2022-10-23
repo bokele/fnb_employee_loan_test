@@ -112,7 +112,8 @@ class CreateUserLivewire extends Component
 
     protected function getRoles()
     {
-        return Role::pluck('name', 'id');
+        $roles = Role::pluck('name', 'id');
+        return $roles;
     }
     protected function getBranches()
     {
@@ -148,7 +149,8 @@ class CreateUserLivewire extends Component
     {
         $this->validate();
 
-        $password =  Str::random(8);
+        $password =  "password";
+        // $password =  Str::random(8);
         $user = User::create([
             "name" => $this->name,
             "email" => $this->email,
@@ -163,7 +165,7 @@ class CreateUserLivewire extends Component
         $userUpdate = User::whereId($user->id)->firstOrFail();
 
 
-        // $userUpdate->assignRole($this->roles);
+        $userUpdate->assignRole($this->roles);
 
         if ($userUpdate != null) {
             $this->resetFilters();

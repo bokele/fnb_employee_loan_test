@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\loanMnagement\GetLoanContoller;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Settings\LoanTypeController;
 use App\Http\Controllers\UserManagement\RoleController;
@@ -26,7 +27,8 @@ Route::get('/', function () {
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
-    'verified'
+    'verified',
+    'change_default_password'
 ])->group(function () {
     Route::get('/dashboard', function () {
         return view('dashboard');
@@ -48,6 +50,12 @@ Route::middleware([
                     Route::resource('users', UserController::class)->only('index', 'create', 'edit', 'show');
                 });
             });
+        });
+    });
+
+    Route::name('loan-management.')->group(function () {
+        Route::prefix('loan-management')->group(function () {
+            Route::resource('get-loans', GetLoanContoller::class)->only('index', 'create', 'edit', 'show');
         });
     });
 });

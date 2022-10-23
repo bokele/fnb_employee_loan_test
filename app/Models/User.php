@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Carbon\Carbon;
 use App\Traits\HashidTrait;
 use Illuminate\Support\Str;
 use Laravel\Sanctum\HasApiTokens;
@@ -24,6 +25,8 @@ class User extends Authenticatable implements MustVerifyEmail
     use TwoFactorAuthenticatable;
     use HasRoles;
     use HashidTrait;
+
+    protected $guard_name = ['sanctum', 'web'];
 
     /**
      * The attributes that are mass assignable.
@@ -84,8 +87,37 @@ class User extends Authenticatable implements MustVerifyEmail
             set: fn ($value) => Str::lower($value),
         );
     }
+    protected function baseSalary(): Attribute
+    {
+        return Attribute::make(
+            get: fn ($value) => $value / 100,
+            set: fn ($value) => $value * 100,
+        );
+    }
     public function branch(): BelongsTo
     {
         return $this->belongsTo(Branch::class, "branch_id", "id");
+    }
+
+    /**
+     * Scope a query to only include popular users.
+     *
+     * @param  \Illuminate\Database\Eloquent\Builder  $query
+     * @return \Illuminate\Database\Eloquent\Builder
+     */
+    public function scopeLoanEligibility($query)
+    {
+        return $query->where("id", auth()->id())->where('job_type', '=', "full time");
+    }
+
+    protected function loanMax(): Attribute
+    {
+        return Attribute::make(
+            get: fn () => $this->base_salary * 5,
+        );
+    }
+    public function scopeGetetNextLoanDate($query)
+    {
+        return $query->where("id", auth()->id())->where('job_type', '=', "full time")->whereDate('next_loan_date', '>', Carbon::today()->toDateString());
     }
 }

@@ -5,6 +5,7 @@ namespace App\Http\Livewire\UserManagement\Role;
 use Livewire\Component;
 use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
+use Illuminate\Validation\Rule;
 
 class EditRoleLivewire extends Component
 {
@@ -50,7 +51,7 @@ class EditRoleLivewire extends Component
     protected function rules()
     {
         return [
-            'name' => ['required', 'string'],
+            'name' => ['required', 'string', Rule::unique('roles', 'name')->ignore($this->role->id)],
             // 'roles' => ['array'],
         ];
     }
@@ -98,7 +99,7 @@ class EditRoleLivewire extends Component
 
         $role->update(['name' => $this->name]);
 
-        $role->givePermissionTo($this->permissions);
+        $role->syncPermissions($this->permissions);
 
         if ($role != null) {
             $this->resetFilters();

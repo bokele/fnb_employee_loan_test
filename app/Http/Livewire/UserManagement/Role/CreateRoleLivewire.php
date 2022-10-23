@@ -47,7 +47,7 @@ class CreateRoleLivewire extends Component
     protected function rules()
     {
         return [
-            'name' => ['required', 'string'],
+            'name' => ['required', 'string', 'unique:roles,name'],
             // 'roles' => ['array'],
         ];
     }

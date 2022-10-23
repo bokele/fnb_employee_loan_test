@@ -62,7 +62,7 @@ class BranchSettingController extends Controller
     public function edit($hashid)
     {
         $data = [
-            'tilte' => "Branch Edit",
+            'title' => "Branch Edit",
             "hashid" => $hashid
         ];
 

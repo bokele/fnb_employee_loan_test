@@ -1,5 +1,5 @@
 <div>
-    <x-layout.section-heading heading="Create Loan Type">
+    <x-layout.section-heading heading="Edit Loan Type">
 
         <div class="flex">
             <x-layout.heading-icon-container route="admin.settings.loan-types.index">

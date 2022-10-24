@@ -1,10 +1,13 @@
 # Simple Loan management system
 
+<p align="center"><a href="https://github.com/bokele" target="_blank">
+<img src="/public/assets/dashboard.png" width="400"></a></p>
+
 # Brief
 
 > Elixir Solution offers In-house loans its full-time staff members. The finance depeartment manages the application to disbursement process.
 
-#Objective
+# Objective
 
 > Build a system that will enable the loan application process with the necessary business rules.
 

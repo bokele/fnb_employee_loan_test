@@ -1,66 +1,109 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Simple Loan management system
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+# Brief
 
-## About Laravel
+> Elixir Solution offers In-house loans its full-time staff members. The finance depeartment manages the application to disbursement process.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+#Objective
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+> Build a system that will enable the loan application process with the necessary business rules.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+# Tasks
 
-## Learning Laravel
+-   implement the system with a framework of your choice.
+-   Package the solution in a deployable package or hos it and share the url, include a readme file for instructions.
+-   Include a brief write up describing your solution
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+## Requirements
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+-   Php 8.1 and above
+-   Composer
+-   Since this project is running laravel 9, we suggest checking out the official requirements [here](https://laravel.com/docs/9.x/upgrade#updating-dependencies)
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+## Installation
 
-## Laravel Sponsors
+To skip steps 4 down ( after composer install ), you can run the below command and it would guide you through
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+-   Clone the repository by running the following command in your comamand line below (Or you can dowload zip file from github)
 
-### Premium Partners
+```shell
+git clone https://github.com/bokele/fnb_employee_loan_test.git  ./fnb_loan
+```
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+-   Head to the project's directory
 
-## Contributing
+```shell
+cd fnb_loan
+```
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+-   Install composer dependancies
 
-## Code of Conduct
+```shell
+composer install
+```
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+-   Copy .env.example file into .env file and configure based on your environment
 
-## Security Vulnerabilities
+```shell
+cp .env.example .env
+```
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+-   Generate encryption key
 
-## License
+```shell
+php artisan key:generate
+```
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+-   Migrate the database
+
+```shell
+php artisan migrate
+```
+
+-   Seed database
+    ```shell
+    php artisan db:seed
+    ```
+-   Install npm dependancies
+
+```shell
+npm install
+```
+
+-   For development or testing purposes, you can use the laravel built in server by running
+
+```shell
+php artisan serve
+```
+
+## Setup
+
+-   Log in to the application with the following credentials
+
+    -   Email: admin@fnb.loan.co.zm
+    -   Password: password
+
+    -   Email: staff@fnb.loan.co.zm
+    -   Password: password
+
+-   You would be prompted to change your password, change your passsword in the profile page to continue
+
+## Features
+
+### Admin
+
+-   Ability to manage all settings
+-   Ability to create, edit, view and delete branch
+-   Ability to create, edit, view and delete loan type
+-   Ability to create, edit, view and delete collateral type
+-   Ability to create, edit, view and delete permission
+-   Ability to create, edit, view and delete role
+-   Ability to create, edit, view and delete user
+-   Ability to create, edit, view delete, submit loan
+-   Ability to verify, approve, disburse, payment and deny loan
+
+### Staff
+
+-   Ability to create, edit, view delete, submit loan
+
+This project was highly inspired by FNB ZAMBIA Interview Project Presentation

@@ -109,4 +109,4 @@ php artisan serve
 
 -   Ability to create, edit, view delete, submit loan
 
-This project was highly inspired by FNB ZAMBIA Interview Project Presentation
+This project was highly inspired by [FNB ZAMBIA](https://www.fnbzambia.co.zm/) Interview Project Presentation

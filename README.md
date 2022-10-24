@@ -83,11 +83,12 @@ php artisan serve
 
 -   Log in to the application with the following credentials
 
-    -   Email: admin@fnb.loan.co.zm
-    -   Password: password
-
-    -   Email: staff@fnb.loan.co.zm
-    -   Password: password
+    -   Admin
+        -   Email: admin@fnb.loan.co.zm
+        -   Password: password
+    -   Staff
+        -   Email: staff@fnb.loan.co.zm
+        -   Password: password
 
 -   You would be prompted to change your password, change your passsword in the profile page to continue
 
